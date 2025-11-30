@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paciente Já Cadastrado</title>
+<link rel="stylesheet" href="Styles.css">
+</head>
+<body>
+<div class="container"><h1>Coloque o arquivo ja respondido!</h1>
+
+    <div class="button-group">
+        <input type="file" id="uploadWord" accept=".docx" style="display:none;">
+        <button  class="btn" onclick="document.getElementById('uploadWord').click()">Importar Word</button>
+        <a href="Home.html" class="btn">Voltar</a>
+    </div>
+    <script src="https://unpkg.com/mammoth/mammoth.browser.min.js"></script>
+<script src="script.js">
+    document.getElementById("docxInput").addEventListener("change", async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const arrayBuffer = await file.arrayBuffer();
+
+    mammoth.extractRawText({ arrayBuffer })
+        .then(result => {
+            let text = result.value;
+
+            // Normaliza símbolos para facilitar leitura
+            text = text.replace(/☒/g, "[x]").replace(/☐/g, "[ ]");
+
+            const dados = {};
+
+            // --- EXTRAI CAMPOS ESCRITOS ---
+            function extrairCampo(label) {
+                const regex = new RegExp(label + "\\s*:?\\s*(.*)");
+                const match = text.match(regex);
+                return match ? match[1].trim() : "";
+            }
+
+            dados.nome = extrairCampo("Nome");
+            dados.cpf = extrairCampo("CPF");
+            dados.natural = extrairCampo("Natural");
+            dados.idade = extrairCampo("Idade");
+
+            // --- FUNÇÃO PARA ITENS SIM/NÃO ---
+            function verificarMarcado(pergunta) {
+                const regexSim = new RegExp(pergunta + "[\\s\\S]*?Sim\\s*\\[(x| )\\]", "i");
+                const regexNao = new RegExp(pergunta + "[\\s\\S]*?Não\\s*\\[(x| )\\]", "i");
+
+                const sim = text.match(regexSim);
+                const nao = text.match(regexNao);
+
+                return {
+                    sim: sim ? sim[1] === "x" : false,
+                    nao: nao ? nao[1] === "x" : false
+                };
+            }
+
+            // Exemplos (você pode adicionar TODOS)
+            dados.fumante = verificarMarcado("É fumante");
+            dados.alcool = verificarMarcado("Faz uso de bebida alcoólica");
+            dados.medicacao = verificarMarcado("Toma algum medicamento");
+
+            // --- EXEMPLO DE SEÇÃO COMPLETA (ANSIEDADE) ---
+            function extrairSecao(listaPerguntas) {
+                const secao = {};
+                listaPerguntas.forEach(p => {
+                    secao[p] = verificarMarcado(p);
+                });
+                return secao;
+            }
+
+            dados.ansiedade = extrairSecao([
+                "Dormência ou formigamento",
+                "Tremores nas pernas",
+                "Medo que aconteça o pior",
+                "Dificuldade de respirar",
+                "Medo de morrer"
+            ]);
+
+            // Mostra JSON final
+            document.getElementById("output").textContent = 
+                JSON.stringify(dados, null, 2);
+        });
+});
+
+</script>
+</div>
+</body>
+</html>
