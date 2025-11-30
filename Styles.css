@@ -6,11 +6,15 @@
 }
 
 body {
-    background: #196fe0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+background: #020024;
+background: -webkit-linear-gradient(173deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+background: -moz-linear-gradient(173deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+background: linear-gradient(173deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024", endColorstr="#00D4FF", GradientType=0);
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
 }
 
 .container {
@@ -20,7 +24,7 @@ body {
 h1 {
     margin-bottom: 40px;
     font-size: 65px;
-    color:rgb(211, 205, 198);
+    color:#FCFCFF;
 }
 
 .button-group {
@@ -32,7 +36,7 @@ h1 {
 .btn {
     padding: 15px 30px;
     background: #5691c9;
-    color:rgb(211, 205, 198);
+    color:#FCFCFF;
     text-decoration: none;
     font-size: 18px;
     border-radius: 8px;
@@ -40,5 +44,9 @@ h1 {
 }
 
 .btn:hover {
-    background: #025294;
+   background: #1000f2;
+background: -webkit-linear-gradient(192deg, rgba(16, 0, 242, 1) 0%, rgba(9, 9, 121, 1) 48%, rgba(0, 212, 255, 1) 100%);
+background: -moz-linear-gradient(192deg, rgba(16, 0, 242, 1) 0%, rgba(9, 9, 121, 1) 48%, rgba(0, 212, 255, 1) 100%);
+background: linear-gradient(192deg, rgba(16, 0, 242, 1) 0%, rgba(9, 9, 121, 1) 48%, rgba(0, 212, 255, 1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1000F2", endColorstr="#00D4FF", GradientType=0);
 }
