@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+    padding: 25px;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 10px;
+    text-shadow: 5px 5px 10px black;
+}
+
+.form-container {
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+}
+
+.logo {
+  text-align: center;
+  background-color: transparent;
+}
+
+img {
+  width: 400px;
+  height: 400px;
+}
+
+.btn_sub{
+    display: flex; /* 1. Habilita o Flexbox: Coloca todos os filhos em uma linha */
+    align-items: right; /* 2. Alinhamento Vertical: Centraliza todos os itens na altura */
+    justify-content: space-between;
+}
+
+.button_submit{
+height: 50px;
+width: 150px;
+border-radius: 15px;
+text-align: center;
+}
+
+/* ------- TÍTULO DA SEÇÃO ------- */
+/*--Titulo das seções--*/
+.section-title {
+    background: #e3e3e3;
+    padding: 12px;
+    border: 2px solid #000;
+    margin: 0;
+    margin-top: 12px;
+    cursor: pointer;
+    position: relative;
+    font-size: 18px;
+    user-select: none;
+    text-align: center;
+}
+
+/* Ícone de seta */
+.section-title::after {
+    content: "▼";
+    position: absolute;
+    right: 12px;
+    transition: transform .3s ease;
+}
+
+.section-title.active::after {
+    transform: rotate(180deg);
+}
+
+/* ------- CONTEÚDO DA SEÇÃO ------- */
+.section-content {
+    border: 2px solid #000;
+    border-top: none;
+    
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s ease;
+    padding: 0 12px;
+}
+
+.section-content.open {
+    padding: 12px;
+    max-height: 10000px; /* espaço suficiente para expandir */
+}
+
+/* ------- CAMPOS ------- */
+.campo {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+
+.linha {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+/* ----------------------------------------------------- */
+/* ESTILO PARA ALINHAMENTO HORIZONTAL E VERTICAL PERFEITO */
+/* ----------------------------------------------------- */
+.Ask {
+    display: flex; /* 1. Habilita o Flexbox: Coloca todos os filhos em uma linha */
+    align-items: center; /* 2. Alinhamento Vertical: Centraliza todos os itens na altura */
+    justify-content: space-between; /* 3. Distribuição Horizontal: Coloca espaço entre os itens para que ocupem as extremidades e o centro da forma mais eficiente */
+    width: 100%; /* Garante que o container ocupe a largura total disponível */
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+}
+
+/* 4. Estilos para a Label de Pergunta (Esquerda) */
+.ask-label {
+    flex-basis: 20%; /* Define a largura da coluna. Ajuste a porcentagem conforme o tamanho do seu texto. */
+    font-weight: bold;
+    color: #333;
+}
+
+/* 5. Estilos para o Grupo de Rádios (Centro) */
+.radio-group {
+    flex-basis: 30%; /* Define a largura da coluna central */
+    display: flex; /* Habilita o Flexbox para alinhar os rádios e labels "Sim/Não" entre si */
+    justify-content: center; /* Centraliza os rádios e labels DENTRO da sua coluna de 30% */
+    gap: 10px;  /* Espaçamento entre os radios (Sim e Não) */
+}
+
+/* Ajusta o tamanho da textarea (Direita) */
+.ask-textarea {
+    
+    flex-basis: 30%; /* Define a largura da coluna da textarea */
+    resize: none; /* Impede que o usuário redimensione o campo */
+    height: 50px; 
+}
+
+input, textarea {
+    padding: 8px;
+    border: 1px solid #000;
+    font-size: 15px;
+}
+
+.buttom{
+    display: flex; /* 1. Habilita o Flexbox: Coloca todos os filhos em uma linha */
+    align-items: center; /* 2. Alinhamento Vertical: Centraliza todos os itens na altura */
+    justify-content: space-between; /* 3. Distribuição Horizontal: Coloca espaço entre os itens para que ocupem as extremidades e o centro da forma mais eficiente */
+}
