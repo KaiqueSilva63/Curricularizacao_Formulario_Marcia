@@ -3,23 +3,12 @@
 
 ### **Requisitos funcionais:**
 
-* Salvar as respostas dos arquivos docx;
+* Salvar as respostas dos arquivos docx OU TXT;
 * Efeito Section colapse, responsibilidade;
 * Converter arquivos docx para o formato do forms;
-* 
 
 
 ### **Requisitos não funcionais:**
 
 * Disponibilidade(24x7);
-* 
-
-
-
-
-
-
-
-**Observações:**
-
-
+* Criptografia HTTPS
