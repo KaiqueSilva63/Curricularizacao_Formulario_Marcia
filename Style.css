@@ -115,7 +115,6 @@ textarea {
     justify-content: space-between;
 }
 
-
 /* ------- CONTEÚDO DA SEÇÃO ------- */
 .section-content {
     border: 2px solid #000;
@@ -205,8 +204,6 @@ textarea {
     background: #f0f0f0;
     border-radius: 8px;
 }
-
-
 
 .erro {
     border: 2px solid red !important;
